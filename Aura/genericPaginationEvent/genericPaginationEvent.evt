@@ -1,0 +1,3 @@
+<aura:event type="COMPONENT" description="Event for handling page change in genericPagination component">
+  <aura:attribute name="pageValue" type="Integer" />
+</aura:event>
