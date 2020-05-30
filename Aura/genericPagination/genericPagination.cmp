@@ -1,4 +1,4 @@
-<aura:component extends="c:lib_baseComponent">
+<aura:component access="global">
   <aura:attribute name="pageLimit" type="Integer" default="10" />
   <aura:attribute name="offset" type="Integer" default="0" />
   <aura:attribute name="totalRecords" type="Integer" default="0" />
