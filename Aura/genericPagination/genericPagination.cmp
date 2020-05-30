@@ -9,9 +9,9 @@
 
   <lightning:layout horizontalAlign="center" multipleRows="true">
     <lightning:layoutItem padding="around-small" size="12" mediumDeviceSize="6">
-      <span class="slds-p-top_small">{!$Label.c.Show}&nbsp;</span>
+      <span class="slds-p-top_small">Show&nbsp;</span>
       <select aura:id="selectPageId" class="slds-select thisSelectCSS" onchange="{!c.changePage}">
-        <option value="">{!$Label.c.Select}</option>
+        <option value="">Select</option>
         <option value="5" selected="{!(equals(v.pageLimit,5)?'selected':'')}">
           <lightning:formattedNumber value="5" />
         </option>
@@ -34,19 +34,19 @@
           <lightning:formattedNumber value="500" />
         </option>
       </select>
-      <span class="slds-p-top_small">&nbsp;{!$Label.c.Entries}</span>
+      <span class="slds-p-top_small">&nbsp;Entries</span>
     </lightning:layoutItem>
     <lightning:layoutItem padding="around-small" size="12" mediumDeviceSize="6" class="slds-text-align_right">
-      <span class="slds-p-top_small"> {!$Label.c.Showing}&nbsp;
-        <lightning:formattedNumber value="{!add(v.page,1)}" />&nbsp;{!$Label.c.to}&nbsp;
-        <lightning:formattedNumber value="{!(greaterthan(add(v.page,v.pageLimit),v.totalRecords)?v.totalRecords:add(v.page,v.pageLimit))}" />&nbsp;{!$Label.c.of}&nbsp;
+      <span class="slds-p-top_small"> Showing&nbsp;
+        <lightning:formattedNumber value="{!add(v.page,1)}" />&nbsp;to&nbsp;
+        <lightning:formattedNumber value="{!(greaterthan(add(v.page,v.pageLimit),v.totalRecords)?v.totalRecords:add(v.page,v.pageLimit))}" />&nbsp;of&nbsp;
         <lightning:formattedNumber value="{!v.totalRecords}" />&nbsp;</span>
       <aura:if isTrue="{!greaterthan(v.totalRecords,v.pageLimit)}">
         <lightning:buttonGroup>
-          <lightning:button aura:id="first" class="{!(lessthanorequal(v.offset, 0)?' ':'btnstyle slds-button slds-button_neutral ')}" label="{!$Label.c.First}" onclick="{!c.paginate}" disabled="{!lessthanorequal(v.offset, 0)}" />
-          <lightning:button aura:id="previous" class="{!(lessthanorequal(v.offset, 0)?'':'btnstyle slds-button slds-button_neutral')}" label="{!$Label.c.Previous}" onclick="{!c.paginate}" disabled="{!lessthanorequal(v.offset, 0)}" />
-          <lightning:button aura:id="next" class="{!(greaterthanorequal(add(v.page,v.pageLimit),v.totalRecords)?'':'btnstyle slds-button slds-button_neutral')}" label="{!$Label.c.Next}" onclick="{!c.paginate}" disabled="{!greaterthanorequal(add(v.page,v.pageLimit),v.totalRecords)}" />
-          <lightning:button aura:id="last" class="{!(greaterthanorequal(add(v.page,v.pageLimit),v.totalRecords)?' ':'btnstyle slds-button slds-button_neutral ')}" label="{!$Label.c.Last}" onclick="{!c.paginate}" disabled="{!greaterthanorequal(add(v.page,v.pageLimit),v.totalRecords)}" />
+          <lightning:button aura:id="first" class="{!(lessthanorequal(v.offset, 0)?' ':'btnstyle slds-button slds-button_neutral ')}" label="First" onclick="{!c.paginate}" disabled="{!lessthanorequal(v.offset, 0)}" />
+          <lightning:button aura:id="previous" class="{!(lessthanorequal(v.offset, 0)?'':'btnstyle slds-button slds-button_neutral')}" label="Previous" onclick="{!c.paginate}" disabled="{!lessthanorequal(v.offset, 0)}" />
+          <lightning:button aura:id="next" class="{!(greaterthanorequal(add(v.page,v.pageLimit),v.totalRecords)?'':'btnstyle slds-button slds-button_neutral')}" label="Next" onclick="{!c.paginate}" disabled="{!greaterthanorequal(add(v.page,v.pageLimit),v.totalRecords)}" />
+          <lightning:button aura:id="last" class="{!(greaterthanorequal(add(v.page,v.pageLimit),v.totalRecords)?' ':'btnstyle slds-button slds-button_neutral ')}" label="Last" onclick="{!c.paginate}" disabled="{!greaterthanorequal(add(v.page,v.pageLimit),v.totalRecords)}" />
         </lightning:buttonGroup>
       </aura:if>
     </lightning:layoutItem>
